@@ -109,13 +109,42 @@
 		.btn-success{
 			background-color:#555;
 		}
-
+		.btn-success:hover, .btn-success.hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
+			color: #ffffff;
+			background-color: #333333;
+			/* border: 1px solid #ff2c42; */
+		}
+		.yy{
+			z-index:-1;
+			position:absolute;
+			width:200px;
+			height:0px;
+			border:2px solid #555;
+			top:200px;
+			transition:all 1s;
+		}
+		.y1{
+			left:200px;
+			transform:rotate(0deg);
+		}
+		.y2{
+			right: 200px;
+			transform: rotate(0deg);
+		}
+		.y3{			
+			width:100px;
+			position:relative;
+			top:-100px;
+			display:inline-block;
+			transform: rotate(0deg);
+		}
 		</style>
 
 <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
 
 	</head>
     <body>
+		<div class='yy y1'></div><div class='yy y2'></div>
         <div class="page">
             <!-- <div class="head js-bg-ele">
                 <div class="content">
@@ -156,8 +185,11 @@
       
         <!--</div>-->
     <div id="ckvip" style="position:relative;z-index:1000">
-	<iframe border="0" id="vplay" name="vplay" src="http://000o.cc/2018/333.php?url=http://v.youku.com/v_show/id_XNTY4MjYwMjAw.html?from=s1.8-1-1.2&spm=a2h0k.8191407.0.0" style="width: 1010px; height: 570px" allowfullscreen="" allowtransparency="" frameborder="0">
+	<iframe border="0" id="vplay" name="vplay" src="" style="width: 1010px; height: 570px" allowfullscreen="" allowtransparency="" frameborder="0">
 </iframe>
+<div style="text-align:center">
+<div class='yy y3'></div>
+</div>
 	</div>
 					
 	 				
@@ -175,13 +207,19 @@ $("#doplayers").bind("click", function() {
 });
 
 function players() {
-	var a = $('#url').val();
+	var a = $('#url').val(),SRC='';
     if ($('#url').val() == "") {
         alert('请输入视频网站网址！');
         $('#url').focus();
         return (false)
     }
-	document.getElementById("vplay").src="http://api.baiyug.cn/vip/index.php?url=" + a;
+	switch(a){
+		case '12':SRC='http://000o.cc/2018/333.php?url=http://v.youku.com/v_show/id_XNTY4MjYwMjAw.html?from=s1.8-1-1.2&spm=a2h0k.8191407.0.0';break;
+		case '李文,菲,雅,莎':SRC = "rose.html";launchIntoFullscreen($('#vplay')[0]);break;
+		case 'yy':SRC = '';$('.yy').show();$('.y1').css('transform','rotate(45deg)');$('.y2').css('transform','rotate(-45deg)');$('.y3').css({'transform':'rotate(90deg)',height:'5px'});break;;
+		default :SRC = "http://api.baiyug.cn/vip/index.php?url=" + a;break;
+	}
+	document.getElementById("vplay").src=SRC;
 
 }
 
@@ -219,6 +257,20 @@ function addhtml52() {
         addflash()
     }
 }
+function launchIntoFullscreen(element) { 
+  if(element.requestFullscreen){ 
+  element.requestFullscreen(); 
+ }
+ else if(element.mozRequestFullScreen) {
+ element.mozRequestFullScreen(); 
+ } 
+else if(element.webkitRequestFullscreen) { 
+  element.webkitRequestFullscreen(); 
+ } 
+else if(element.msRequestFullscreen) { 
+  element.msRequestFullscreen(); 
+ }
+ }
 </script>
 					<div id="ckplays"></div> 
 						<!-- <div class="logos_lists" style="margin-left:30px;">					
