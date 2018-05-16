@@ -148,14 +148,47 @@
 			transform: rotate(0deg);
 		}
 		.page{
-			background: url(img/bg.jpg) no-repeat;
+			/**background: url(img/bg.jpg) no-repeat;**/
 			background-size:cover;
+		}
+		
+		#bgc{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: none;
+		overflow: hidden;
+		z-index: -1;
 		}
 		</style>
 
 <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
 
 	</head>
+	<header>
+      <div>
+        <h1>
+          <a ></a>
+          <a ></a>
+          <strong></strong>
+        </h1>
+        <p>
+          <em>
+          </em>
+        </p>
+        <aside>
+          <a ></a>
+          <a></a>
+         
+          <a ></a>
+        </aside>
+      </div>
+
+      <a href="3194" class="button p"></a>
+      <a href="3196" class="button n"></a>
+    </header>
     <body>
 		<div class='yy y1'></div><div class='yy y2'></div>
         <div class="page">
@@ -218,7 +251,7 @@ $("#doplayers").bind("click", function() {
 });
 
 function players() {
-	var a = $('#url').val(),SRC='';
+	var a = $('#url').val().toLowerCase(),SRC='';
     if ($('#url').val() == "") {
         alert('请输入视频网站网址！');
         $('#url').focus();
@@ -227,6 +260,7 @@ function players() {
 	if('李文,菲,雅,莎'.indexOf(a)>-1) a = 'rose';
 	switch(a){
 		case '12':SRC='http://000o.cc/2018/333.php?url=http://v.youku.com/v_show/id_XNTY4MjYwMjAw.html?from=s1.8-1-1.2&spm=a2h0k.8191407.0.0';break;
+		case 'suphie' :SRC='http://000o.cc/2018/333.php?url=https://m.youku.com/video/id_XMzEwMjY5MTM1Ng==.html';break;
 		case 'rose':SRC = "rose.html";launchIntoFullscreen($('#vplay')[0]);break;
 		case 'yy':SRC = '';$('.yy').css('visibility','visible');setTimeout(function(){$('.y1').css('transform','rotate(45deg)');$('.y2').css('transform','rotate(-45deg)');$('.y3').css({'transform':'rotate(90deg)',height:'5px'})},400);break;;
 		default :SRC = "http://api.baiyug.cn/vip/index.php?url=" + a;break;
@@ -361,5 +395,43 @@ else if(element.msRequestFullscreen) {
 //})();
 </script>
 <script src="https://hm.baidu.com/hm.js?66431f8b06e609b2ce574788b1848e01"></script>
+<!-- <script type="demo">
+(fillBg=function(i,l){function n(i,l){c.globalCompositeOperation=i,c.fillStyle=l}n("source-over",i),c.fillRect(0,0,W=a.width,H=a.height),n("lighter",l)})("#000"),Random=Math.random,Sin=Math.sin,Cos=Math.cos,K=40,P=Math.PI,PK=P/K,P10=P/10,P2=P/2,C=P+P,i=24,(r=function(){fillBg("rgba(0,0,0,0.2)","hsla("+i+",70%,60%,0.5)");for(let l=3,n=20,o=50,t=o+l,a=K+n*Cos(-i/t)*Sin(i/(o+n))+W,P=i/137,e=P10+i/(t-10),r=P10+i/(110+o+l),s=0,f=0;s<K;++s){c.fillStyle="hsla("+(n*s+i)+",70%,60%,0.5)",e+=f,r+=f;for(let i,n,o,s=Sin(P+P2),f=Sin(P),h=Sin(r),S=Cos(r),g=0;g<K;++g)i=PK*g+h,o=(n=Sin(e+i))*Cos(i),p=n*Sin(i),n=1/(o*s+1.4),p*=n+f,o*=n*f,c.beginPath(),i=t+W/3,c.arc(W*(o*S-p*h)+f+i,W*(o*h+p*S)*Cos(n)+g*h+a-H-i-g,l*n+s,0,C),c.fill();P+=f,f=PK}requestAnimationFrame(r),i++})();
+    </script>
+    <script>
+      (function(){var m=document,b=m.getElementsByTagName("header")[0],h=b.firstChild,n=m.getElementsByClassName("p")[0],f=m
+      .getElementsByClassName("n")[0];b.insertBefore(n,h);b.insertBefore(f,h);b.appendChild(m.getElementsByTagName("p")[0])}
+      )();(function reload(){function h(a){g.body.removeChild(k);d.parentElement.removeChild(d);t=c=d=k=null;reload(a)}var
+        B=T_CANVAS_SHIM=true,
+        N=T_WEBGL=false,
+        F=T_MAX_WIDTH=0,
+        P=T_MAX_HEIGHT=0,
+        U=T_LOCK_RATIO=false,
+        Q=T_CENTER_CANVAS=false,
+        V=T_RELOAD_ONORIENTATIONCHANGE=false,
+      g=document,t=g.getElementsByTagName("header")[0],k=g.createElement("iframe");k.setAttribute('id','bgc');g.body.appendChild(k);var a=k.contentWindow
+      ,c=k.contentDocument;c.open();c.close();c.write('<!doctype html><html style="margin: 0; padding: 0; border: 0;'+(B?" w"+
+      "idth: 100%; height: 100%;":"")+'"><head><meta charset="utf-8"><body style="margin: 0; padding: 0; border: 0;'+(B?" wi"+
+      "dth: 100%; height: 100%;":"")+'">'+(B?'<canvas style="display: block;'+(Q?" margin: auto;":"")+'"></canvas>':"")+"");if
+      (B){var e=c.getElementsByTagName("canvas")[0],q=e.style;c.body.clientWidth;var l=Math.max(Math.min(F||innerWidth,
+      innerWidth),1),r=Math.max(Math.min(P||innerHeight-50,innerHeight-50),1);(l<F||r<P)&&U&&(l<F?r=l/F*P:l=r/P*F);q.width=(e.
+      width=l)+"px";q.height=(e.height=r)+"px"}V&&(onorientationchange=h);a.AudioContext=a.AudioContext||a.webkitAudioContext;
+      a.requestAnimationFrame=a.requestAnimationFrame||a.mozRequestAnimationFrame||a.webkitRequestAnimationFrame||a.
+      msRequestAnimationFrame||function(b){a.setTimeout(b,1E3/30)};B&&(e.requestPointerLock=e.requestPointerLock||e.
+      mozRequestPointerLock||e.webkitRequestPointerLock);c.body.requestPointerLock=c.body.requestPointerLock||c.body.
+      mozRequestPointerLock||c.body.webkitRequestPointerLock;var nav=a.navigator;nav.getUserMedia=nav.getUserMedia||N.
+      webkitGetUserMedia||nav.mozGetUserMedia||nav.msGetUserMedia;a.OscillatorNode&&a.OscillatorNode.prototype&&(a
+      .OscillatorNode.prototype.start=a.OscillatorNode.prototype.start||a.OscillatorNode.prototype.noteOn,a.OscillatorNode.
+      prototype.stop=a.OscillatorNode.prototype.stop||a.OscillatorNode.prototype.noteOff);B&&(a.a=e);a.b=c.body;a.d=c;B&&(N||(
+      a.c=e.getContext("2d")),N&&(a.g=function(){a.onorientationchange=a.onresize=null;try{var b={antialias:!0,stencil:!0},d=e
+      .getContext("webgl",b)||e.getContext("experimental-webgl",b);a.__glExts="OES_texture_float OES_texture_float_linear OE"+
+      "S_standard_derivatives EXT_texture_filter_anisotropic MOZ_EXT_texture_filter_anisotropic WEBKIT_EXT_texture_filter_an"+
+      "isotropic WEBGL_compressed_texture_s3tc MOZ_WEBGL_compressed_texture_s3tc WEBKIT_WEBGL_compressed_texture_s3tc".split(
+      " ").map(function(a){return d.getExtension(a)})}catch(f){throw c.body.innerHTML="WebGL not supported.",a.a=a.b=a.c=a.d=
+      null,f;}return d}()));B=c.createElement("script");B.textContent=g.querySelector('script[type="demo"]').textContent;c.
+      body.appendChild(B);c.close();k.contentWindow.focus();B=g.getElementsByTagName("div")[0];window.reload=h;var d=g.
+      createElement("div");d.innerHTML="&#8635;";d.className="button r";d.title="restart just the demo (local, without remot"+
+      "e fetch)";d.onclick=h;t.insertBefore(d,B)})();
+    </script> -->
 </body>
 </html>
